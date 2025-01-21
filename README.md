@@ -1,3 +1,8 @@
+
+**DuoDok**
+
+![Blue White Modern and Professional Technology Company Logo](https://github.com/user-attachments/assets/3182c8a3-3d05-4d05-bc87-f50fe7bfbee5)
+
 Receptor-Antibody Docking Analysis
 This repository provides a **Streamlit**-based web application for analyzing docking interactions between receptor and antibody molecules. The application utilizes **HDOCK**, **PRODIGY**, and **CREATEPL** tools to predict binding affinities, dissociation constants, and contact points between molecular structures.
 Features
