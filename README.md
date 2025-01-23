@@ -23,7 +23,7 @@ Installation
    ```
 2. Install the required dependencies:
    ```bash
-   pip install -r requirements.txt
+   pip install streamlit plotly biopython prodigy hdock numpy pandas
    ```
 3. Ensure the following tools are installed and accessible from the command line:
    - [HDOCK](http://hdock.phys.hust.edu.cn/)
