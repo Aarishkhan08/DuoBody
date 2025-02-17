@@ -15,6 +15,23 @@ def download_file(file_path):
         href = f'<a href="data:file/txt;base64,{b64}" download="{os.path.basename(file_path)}">Download {os.path.basename(file_path)}</a>'
         return href
 
+def read_file_content(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            return f.read()
+    except UnicodeDecodeError:
+        return "Binary file - cannot display content"
+    except Exception as e:
+        return f"Error reading file: {str(e)}"
+
+def save_file_content(file_path, content):
+    try:
+        with open(file_path, 'w') as f:
+            f.write(content)
+        return True
+    except Exception as e:
+        return str(e)
+
 def run_hdock(receptor, antibody, results_folder):
     output_file = f"{results_folder}/{receptor}_{antibody}_hdock.out"
     command = f"./hdock receptor/{receptor} antibody/{antibody} -out {output_file}"
@@ -67,6 +84,12 @@ def main():
             border-radius: 5px;
             margin: 10px 0;
         }
+        .console-view {
+            font-family: monospace;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
     """, unsafe_allow_html=True)
     
@@ -83,40 +106,60 @@ def main():
     st.sidebar.write(f"🔍 Found {len(receptors)} receptors and {len(antibodies)} antibodies.")
     st.sidebar.write(f"🔗 Total pairs to process: {len(pairs)}")
     
-    # Results Browser Section
-    st.header("📂 Results Browser")
+    # Results Browser and Console Section
+    st.header("📂 Results Browser and Console")
     if os.path.exists(results_folder):
         results_files = os.listdir(results_folder)
         if results_files:
-            st.write(f"Found {len(results_files)} files in results folder:")
+            col1, col2 = st.columns([1, 2])
             
-            # File filtering
-            file_filter = st.text_input("Filter files (type to search):")
-            file_type = st.selectbox("Filter by file type:", 
-                                   ["All", ".pdb", ".out", ".pse"])
-            
-            filtered_files = results_files
-            if file_filter:
-                filtered_files = [f for f in filtered_files if file_filter.lower() in f.lower()]
-            if file_type != "All":
-                filtered_files = [f for f in filtered_files if f.endswith(file_type)]
-            
-            # Display files in a table with download links
-            if filtered_files:
-                file_data = []
-                for file in filtered_files:
-                    file_path = os.path.join(results_folder, file)
-                    file_size = os.path.getsize(file_path) / 1024  # Size in KB
-                    file_data.append({
-                        "File Name": file,
-                        "Size (KB)": f"{file_size:.2f}",
-                        "Download": download_file(file_path)
-                    })
+            with col1:
+                st.write(f"Found {len(results_files)} files:")
                 
-                df = pd.DataFrame(file_data)
-                st.write(df.to_html(escape=False, index=False), unsafe_allow_html=True)
-            else:
-                st.warning("No files match the current filters.")
+                # File filtering
+                file_filter = st.text_input("Filter files (type to search):")
+                file_type = st.selectbox("Filter by file type:", 
+                                       ["All", ".pdb", ".out", ".pse"])
+                
+                filtered_files = results_files
+                if file_filter:
+                    filtered_files = [f for f in filtered_files if file_filter.lower() in f.lower()]
+                if file_type != "All":
+                    filtered_files = [f for f in filtered_files if f.endswith(file_type)]
+                
+                # File selection
+                if filtered_files:
+                    selected_file = st.selectbox("Select file to view/edit:", filtered_files)
+                    file_path = os.path.join(results_folder, selected_file)
+                    file_size = os.path.getsize(file_path) / 1024  # Size in KB
+                    st.write(f"Size: {file_size:.2f} KB")
+                    st.markdown(download_file(file_path), unsafe_allow_html=True)
+                else:
+                    st.warning("No files match the current filters.")
+            
+            with col2:
+                if 'selected_file' in locals():
+                    st.subheader(f"📝 File Console: {selected_file}")
+                    content = read_file_content(file_path)
+                    
+                    # Determine if file is editable (non-binary)
+                    is_binary = content == "Binary file - cannot display content"
+                    
+                    if not is_binary:
+                        # Create a key for the text area based on the file name
+                        edited_content = st.text_area("File Content", 
+                                                    value=content,
+                                                    height=400,
+                                                    key=f"console_{selected_file}")
+                        
+                        if st.button("Save Changes", key=f"save_{selected_file}"):
+                            result = save_file_content(file_path, edited_content)
+                            if result is True:
+                                st.success("Changes saved successfully!")
+                            else:
+                                st.error(f"Error saving changes: {result}")
+                    else:
+                        st.info("This is a binary file and cannot be edited directly.")
         else:
             st.info("No files in results folder yet. Run the analysis to generate results.")
     else:
