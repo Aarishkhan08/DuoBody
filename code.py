@@ -178,11 +178,6 @@ def main():
         
         st.balloons()
         st.success("🎉 All tasks completed! Check the results browser above.")
-    
-    # Results Summary Section
-    st.header("📊 Results Summary")
-    df_summary = generate_summary(results_folder, pairs)
-    st.dataframe(df_summary)
 
 if __name__ == "__main__":
     main()
