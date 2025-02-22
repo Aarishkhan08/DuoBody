@@ -12,6 +12,15 @@ def ensure_executable(file_path):
     if os.path.exists(file_path) and not os.access(file_path, os.X_OK):
         os.chmod(file_path, 0o755)  # Grant execute permissions
 
+def check_library_dependencies():
+    lib_check = subprocess.run("ldd ./hdock", shell=True, capture_output=True, text=True)
+    if "not found" in lib_check.stdout:
+        st.error("Missing required libraries for hdock. Install 'libfftw3'.")
+
+def check_command_availability(command):
+    result = subprocess.run(f"which {command}", shell=True, capture_output=True, text=True)
+    return result.stdout.strip()
+
 def run_command(command):
     try:
         result = subprocess.run(command, shell=True, capture_output=True, text=True, executable='/bin/bash')
@@ -23,8 +32,9 @@ def run_command(command):
 
 def run_hdock(receptor, antibody, results_folder):
     ensure_executable("./hdock")
+    check_library_dependencies()
     output_file = f"{results_folder}/{receptor}_{antibody}_hdock.out"
-    command = f"./hdock receptor/{receptor} antibody/{antibody} -out {output_file}"
+    command = f"LD_LIBRARY_PATH=/usr/local/lib ./hdock receptor/{receptor} antibody/{antibody} -out {output_file}"
     run_command(command)
 
 def run_createpl(results_folder, receptor, antibody):
@@ -35,14 +45,22 @@ def run_createpl(results_folder, receptor, antibody):
     return output_pdb
 
 def run_prodigy(input_file, protein_chains, ligand_chain, results_folder, receptor, antibody):
+    prodigy_path = check_command_availability("prodigy_lig")
+    if not prodigy_path:
+        st.error("prodigy_lig command not found. Ensure it's installed and in PATH.")
+        return
     output_file = f"{results_folder}/{receptor}_{antibody}_prodigy.out"
-    command = f"prodigy_lig -c {protein_chains} {ligand_chain} -i {input_file} -o > {output_file}"
+    command = f"{prodigy_path} -c {protein_chains} {ligand_chain} -i {input_file} -o > {output_file}"
     run_command(command)
     return output_file
 
 def run_plip(input_file, results_folder, receptor, antibody):
+    plip_path = check_command_availability("plip")
+    if not plip_path:
+        st.error("plip command not found. Ensure it's installed and in PATH.")
+        return
     output_pse = f"{results_folder}/{receptor}_{antibody}_plip.pse"
-    command = f"plip -i {input_file} -o {results_folder}"
+    command = f"{plip_path} -i {input_file} -o {results_folder}"
     run_command(command)
     return output_pse
 
