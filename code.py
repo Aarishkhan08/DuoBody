@@ -39,18 +39,7 @@ def generate_summary(results_folder, pairs):
     df = pd.DataFrame(summary_data, columns=["Receptor", "Antibody", "Prodigy Results", "PLIP Results"])
     return df
 
-def change_permission():
-    file_path = st.text_input("Enter the file path:")
-    if file_path:
-        try:
-            subprocess.run(['chmod', 'u+rwx', file_path], check=True)
-            subprocess.run(['sudo', 'chown', 'username:usergroup', file_path], check=True)
-            st.success(f"Permissions updated for {file_path}")
-        except subprocess.CalledProcessError as e:
-            st.error(f"Error while changing permissions: {e}")
-
 def main():
-    change_permission()
     st.set_page_config(page_title="HDOCK, PRODIGY & PLIP Automation", layout="wide")
     st.title("🔬 HDOCK, PRODIGY & PLIP Automation Tool")
     st.markdown("""
