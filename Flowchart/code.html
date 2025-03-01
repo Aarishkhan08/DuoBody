@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowchart: HDOCK, PRODIGY & PLIP Automation</title>
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Title Styling */
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        /* Container for Flowchart */
+        .flowchart-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: repeat(6, 150px);
+            grid-gap: 20px;
+            justify-items: center;
+            align-items: center;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        /* Flowchart Box Styling */
+        .flowchart-box {
+            background-color: #ffffff;
+            border: 2px solid #4CAF50;
+            color: #333;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effect on Flowchart Boxes */
+        .flowchart-box:hover {
+            background-color: #4CAF50;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Arrow Styling */
+        .arrow {
+            width: 30px;
+            height: 30px;
+            fill: #4CAF50;
+            transform: rotate(90deg);
+            transition: transform 0.3s ease;
+        }
+
+        .arrow:hover {
+            transform: rotate(90deg) scale(1.2);
+        }
+
+        /* Flowchart Layout */
+        .top {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .right {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .left {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .bottom {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        .startend {
+            grid-column: 2;
+            grid-row: 4;
+        }
+
+        /* Arrow Containers */
+        .arrow-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .arrow-container svg {
+            margin: 10px;
+        }
+
+        /* Container Styling for Tools */
+        .container {
+            border: 3px solid #4CAF50;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 10px;
+            background-color: #e8f5e9;
+            text-align: center;
+            width: 270px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h2 {
+            color: #388e3c;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container ul {
+            list-style-type: none;
+            padding-left: 0;
+            text-align: left;
+        }
+
+        .container ul li {
+            margin-bottom: 10px;
+        }
+
+        /* For Smaller Screens */
+        @media screen and (max-width: 768px) {
+            .flowchart-container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 150px);
+            }
+            .top {
+                grid-row: 1;
+            }
+            .right {
+                grid-row: 2;
+            }
+            .left {
+                grid-row: 3;
+            }
+            .bottom {
+                grid-row: 4;
+            }
+            .startend {
+                grid-row: 5;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>🔬 Flowchart: HDOCK, PRODIGY & PLIP Automation</h1>
+
+<div class="flowchart-container">
+
+    <!-- Flowchart Steps -->
+
+    <div class="flowchart-box top">
+        <p>START 🚀</p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box right">
+        <p>User Uploads 📁</p>
+        <p><small>(Receptor & Antibody Files)</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box left">
+        <p>Validate Input Files ✅</p>
+        <p><small>Check file format, completeness, etc.</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box bottom">
+        <p>Generate Pairs 🔗</p>
+        <p><small>Receptor & Antibody pairing</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box top">
+        <p>Run HDOCK 🧬</p>
+        <p><small>Perform molecular docking simulation</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box right">
+        <p>Generate Docked Complex 🔬</p>
+        <p><small>Identify best-fit receptor-antibody docking pose</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box left">
+        <p>Run PRODIGY 💡</p>
+        <p><small>Calculate Binding Energy of Docked Complex</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box bottom">
+        <p>Run PLIP 🔍</p>
+        <p><small>Perform Interaction Profiling on Docked Complex</small></p>
+    </div>
+
+    <div class="arrow-container">
+        <svg class="arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l18 9V3z"></path></svg>
+    </div>
+
+    <div class="flowchart-box startend">
+        <p>🎉 All Tasks Completed!</p>
+    </div>
+</div>
+
+</body>
+</html>

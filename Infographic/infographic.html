@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NSCLC Campaign Poster</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2f3e56 0%, #151d2b 100%);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .poster {
+            width: 100%;
+            max-width: 1200px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            height: auto;
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 40px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #f44336;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            color: #f44336;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: center;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .fact-card {
+            background: #3a3f5c;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .fact-card i {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #f44336;
+        }
+
+        .fact-card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .fact-card p {
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        /* Adding images within the cards */
+        .fact-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-top: 15px;
+        }
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .cta p {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            background: #f44336;
+            padding: 15px 25px;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 30px;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #c62828;
+        }
+
+        .img-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        /* Adding Background Gradient to Sections */
+        .section:nth-child(even) {
+            background: #232a3a;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .section:nth-child(odd) {
+            background: #3a3f5c;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        /* Emoji Styling */
+        .emoji {
+            font-size: 25px;
+            color: #f44336;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 30px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .cta a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .img-section img {
+                max-width: 90%;
+            }
+
+            .fact-card {
+                padding: 15px;
+            }
+
+            .fact-card i {
+                font-size: 30px;
+            }
+
+            .fact-card h3 {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="poster">
+        <!-- Header Section -->
+        <div class="header">
+            <h1>NSCLC : The Root Cause</h1>
+        </div>
+
+        <!-- Lung Damage Section -->
+        <div class="section">
+            <h2>Lung Damage: A Silent Killer</h2>
+            <div class="facts">
+                <div class="fact-card">
+                    <i class="fas fa-lungs emoji"></i>
+                    <h3>Persistent Cough & Shortness of Breath 😷</h3>
+                    <p>NSCLC causes long-lasting respiratory issues, making breathing difficult. 🫁</p>
+                    <img src="NSCLC.jpg" alt="Lung Damage Illustration">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-chestnut emoji"></i>
+                    <h3>Severe Chest Pain & Fatigue 💔</h3>
+                    <p>Chest pain and extreme fatigue drain patients physically and emotionally. 😓</p>
+                    <img src="quality of life.png" alt="Impact on Quality of Life">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-weight emoji"></i>
+                    <h3>Unexplained Weight Loss ⚖️</h3>
+                    <p>Sudden weight loss leaves patients weak and reduces their ability to fight the disease. 💪</p>
+                    <img src="Metastasis Flow.png" alt="Metastasis Flow">
+                </div>
+            </div>
+        </div>
+
+        <!-- Metastasis Spread Section -->
+        <div class="section">
+            <h2>Metastasis: Cancer Spreads Rapidly 🔄</h2>
+            <div class="facts">
+                <div class="fact-card">
+                    <i class="fas fa-arrow-right emoji"></i>
+                    <h3>Spread to Brain & Bones 🧠💀</h3>
+                    <p>NSCLC spreads quickly to organs like the brain, liver, and bones, complicating treatment. 🚨</p>
+                    <img src="Metastasis Flow.png" alt="Metastasis Flow Diagram">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-bone emoji"></i>
+                    <h3>Advanced Stage is Harder to Treat 💔</h3>
+                    <p>Once metastasized, the cancer becomes more resistant to therapies, worsening prognosis. 📉</p>
+                    <img src="NSCLC.jpg" alt="NSCLC Damage">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-brain emoji"></i>
+                    <h3>Impact on Cognitive Functions 🧠</h3>
+                    <p>Metastasis to the brain affects cognitive functions, including memory and coordination. 💭</p>
+                    <img src="Brain Metastasis.jpg" alt="Brain Metastasis">
+                </div>
+            </div>
+        </div>
+
+        <!-- Impact on Life Section -->
+        <div class="section">
+            <h2>NSCLC Impacts Quality of Life 🌟</h2>
+            <div class="facts">
+                <div class="fact-card">
+                    <i class="fas fa-bed emoji"></i>
+                    <h3>Loss of Vitality & Physical Health 😔</h3>
+                    <p>Patients become bedridden, losing their ability to carry out everyday activities. 🛏️</p>
+                    <img src="Quality-of-Life.jpg" alt="Impact on Quality of Life">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-users emoji"></i>
+                    <h3>Emotional & Social Isolation 😞</h3>
+                    <p>As physical strength declines, patients experience social and emotional isolation. 😢</p>
+                    <img src="social isolation.jpg" alt="Social Isolation">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-medkit emoji"></i>
+                    <h3>Limited Access to Treatments 💊</h3>
+                    <p>Not everyone has access to life-saving therapies, increasing the suffering. 💔</p>
+                    <img src="treatment.jpg" alt="Treatment Access">
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistical Overview -->
+        <div class="section">
+            <h2>NSCLC by the Numbers 📊</h2>
+            <div class="facts">
+                <div class="fact-card">
+                    <i class="fas fa-globe emoji"></i>
+                    <h3>2.2 Million New Cases Per Year 🌍</h3>
+                    <p>Globally, over 2.2 million new cases of NSCLC are diagnosed annually. 🌐</p>
+                    <img src="medical.jpg" alt="New Cases Stats">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-skull emoji"></i>
+                    <h3>1.8 Million Deaths Per Year 💀</h3>
+                    <p>NSCLC causes over 1.8 million deaths annually worldwide. ⚠️</p>
+                    <img src="death.png" alt="Death Rate">
+                </div>
+                <div class="fact-card">
+                    <i class="fas fa-chart-line emoji"></i>
+                    <h3>5-Year Survival: Less than 15% ⚠️</h3>
+                    <p>Advanced stages have a 5-year survival rate below 15%, highlighting the urgency of early detection. ⏳</p>
+                    <img src="life.jpg" alt="Survival Rates">
+                </div>
+            </div>
+        </div>
+
+        <!-- Call-to-Action -->
+        <div class="cta">
+            <p>Help raise awareness and fight against NSCLC! Together, we can make a difference. 🦸‍♂️🦸‍♀️</p>
+            <a href="#">Join the Fight Now!</a>
+        </div>
+    </div>
+</body>
+</html>
