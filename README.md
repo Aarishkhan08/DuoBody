@@ -3,94 +3,66 @@
 
 ![Blue White Modern and Professional Technology Company Logo](https://github.com/user-attachments/assets/3182c8a3-3d05-4d05-bc87-f50fe7bfbee5)
 
-Receptor-Antibody Docking Analysis
-This repository provides a **Streamlit**-based web application for analyzing docking interactions between receptor and antibody molecules. The application utilizes **HDOCK**, **PRODIGY**, and **CREATEPL** tools to predict binding affinities, dissociation constants, and contact points between molecular structures.
-Features
+# 🔬 Receptor-Antibody Docking Analysis  
 
-- Upload **PDB** files for receptors and antibodies.
-- Perform automated docking simulations using **HDOCK**.
-- Generate protein complexes with **CREATEPL**.
-- Predict binding affinities and dissociation constants with **PRODIGY**.
-- Visualize results as heatmaps and distribution charts.
-- Download analysis results as a CSV file.
+This repository provides a **Streamlit-based web application** for analyzing docking interactions between receptor and antibody molecules. The application leverages **HDOCK, PRODIGY, and CREATEPL** to predict binding affinities, dissociation constants, and contact points between molecular structures.  
 
-Installation
+---
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your_username/receptor-antibody-docking.git
-   cd receptor-antibody-docking
-   ```
-2. Install the required dependencies:
-   ```bash
-   pip install streamlit plotly biopython prodigy hdock numpy pandas
-   ```
-3. Ensure the following tools are installed and accessible from the command line:
-   - [HDOCK](http://hdock.phys.hust.edu.cn/)
-   - CREATEPL (included in the HDOCK package)
-   - [PRODIGY](https://bianca.science.uu.nl/prodigy/)
+## ✨ Features  
 
-Usage
+✅ **Upload PDB files** for receptor and antibody molecules.  
+✅ **Automated docking simulations** using **HDOCK**.  
+✅ **Complex generation** with **CREATEPL**.  
+✅ **Predict binding affinities** and **dissociation constants** using **PRODIGY**.  
+✅ **Interactive visualizations** – heatmaps & distribution charts.  
+✅ **Download analysis results** as a CSV file.  
 
-1. Start the Streamlit app:
-   ```bash
-   streamlit run app.py
-   ```
-2. Open the app in your web browser at `http://localhost:8501`.
-3. Upload receptor and antibody **PDB** files through the sidebar.
-4. Click **Start Analysis** to process the files.
-5. View results, download the CSV, and visualize binding affinities.
+---
 
-File Organization
+## 🚀 Installation  
 
-- **`app.py`**: The main Streamlit application.
-- **`requirements.txt`**: Python dependencies.
-- **`temp/`**: Temporary storage for input and output files during analysis.
-- **`results/`**: Directory where final analysis outputs (PDB and CSV files) are saved.
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/Aarishkhan08/DuoBody/
+cd DuoDok
+```
+###2️⃣ Install Required Dependencies
+```bash
+pip install streamlit pandas smtplib itertools shutil re base64 plip
+```
+3️⃣ Ensure Required Tools are Installed
+Make sure the following tools are installed and accessible from the command line:
 
-Key Functions
+HDOCK
+CREATEPL (included in the HDOCK package)
+PRODIGY
+###▶️ Usage
+Start the Streamlit app:
 
-- **`run_hdock`**: Runs HDOCK to perform docking simulations.
-- **`run_createpl`**: Generates protein complexes from HDOCK outputs.
-- **`run_prodigy`**: Predicts binding affinities, dissociation constants, and contacts.
-- **`create_results_df`**: Converts analysis results into a pandas DataFrame.
+```bash
+streamlit run app.py
+```
+###📌 Requirements
+Python 3.8+
+Streamlit
+pandas
+Biopython
+HDOCK, CREATEPL, PRODIGY (installed separately)
 
-Outputs
+###🛠 Troubleshooting
+If you encounter issues:
+✅ Ensure all dependencies & tools are correctly installed.
+✅ Verify that uploaded PDB files are properly formatted.
+✅ Check file paths & permissions for temp/ and results/ directories.
 
-- **Binding Affinity Heatmap**: Displays binding affinities between receptor-antibody pairs.
-- **Binding Affinity Distribution**: Shows the frequency distribution of affinities.
-- **Analysis Results CSV**: Contains detailed docking metrics for all receptor-antibody combinations.
+###🤝 Contributing
+Contributions are welcome! Feel free to:
 
-Example Workflow
+Submit Issues for bugs & feature requests.
+Create Pull Requests to improve the repository.
+Suggest Enhancements via discussions.
 
-1. **Input Files**: Upload receptor and antibody PDB files.
-2. **Docking Process**:
-   - HDOCK computes the docking.
-   - CREATEPL generates the docked complex.
-   - PRODIGY predicts interaction metrics.
-3. **Results**: View and download results, including binding affinities and dissociation constants.
-4. **Visualizations**: Analyze heatmaps and distribution charts for insights.
-
-Requirements
-
-- Python 3.8+
-- Streamlit
-- pandas
-- Biopython
-- HDOCK, CREATEPL, PRODIGY (installed separately)
-
-Troubleshooting
-
-If you encounter issues during the analysis:
-- Ensure all dependencies and tools are correctly installed.
-- Verify that the uploaded PDB files are valid and properly formatted.
-- Check file paths and permissions for temporary and results directories.
-
-Contributing
-
-Contributions are welcome! Feel free to submit issues, pull requests, or suggestions to improve this repository.
-
-License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
+###📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
