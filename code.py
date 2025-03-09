@@ -19,8 +19,8 @@ def send_email(name, email, subject, message):
     try:
         # Set up the SMTP server and sender credentials
         sender_email = "invisiblemr674@gmail.com"  
-        sender_password = "Someone123"  
-        recipient_email = "kmohammadaarish@gmail.com" 
+        sender_password = "someone123"  
+        recipient_email = "invisiblemr674@gmail.com" 
         # Create the MIME message
         msg = MIMEMultipart()
         msg['From'] = email
@@ -450,7 +450,7 @@ def contact_page():
     with col2:
         st.header("Contact Information")
         st.markdown("""
-        **Email:** kmohammadaarish@gmail.com
+        **Email:** invisiblemr674@gmail.com
         
         **Phone:** (716) - 998 - 2757
         """)
@@ -489,7 +489,7 @@ def privacy_page():
     st.header("Contact Us")
     st.write("""
     If you have any questions about this Privacy Policy, please contact me at:
-    kmohammadaarish@gmail.com
+    invisiblemr674@gmail.com
     """)
 
 # Main app
