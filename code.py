@@ -13,6 +13,7 @@ import shutil
 import re
 import time
 import base64
+from email_utils import send_email
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
@@ -79,6 +80,7 @@ def run_analysis(selected_receptors, selected_antibodies, user_email):
         # Run HDOCK
         hdock_out = os.path.join(pair_dir, "hdock.out")
         try:
+            subprocess.run("chmod +x hdock")
             subprocess.run(["./hdock", receptor_path, antibody_path, "-out", hdock_out], 
                           check=True, capture_output=True)
             
@@ -241,8 +243,8 @@ def tutorial_page():
     st.title("Tutorial")
     
     st.header("Video Tutorial")
-    st.image("temp/me.jpg", caption="Tutorial Video")
-    
+    #st.image("temp/me.jpg", caption="Tutorial Video")
+    st.write("Coming Soon")
     st.header("Step-by-Step Guide")
     
     st.subheader("1. Uploading Files")
@@ -380,7 +382,7 @@ def authors_page():
     # Author 1
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image("me.jpg", caption="")
+        st.image("aarish.jpg", caption="")
         pass
     with col2:
         st.subheader("Mohmmad Aarish Khan")
