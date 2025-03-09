@@ -186,7 +186,7 @@ def run_analysis(selected_receptors, selected_antibodies, user_email):
 def send_results_email(email, results_folder):
     # Set up email
     msg = MIMEMultipart()
-    msg['From'] = 'duodok.system@example.com'  # Replace with actual email
+    msg['From'] = 'invisiblemr674@gmail.com'  # Replace with actual email
     msg['To'] = email
     msg['Subject'] = 'Your DuoDok Analysis Results'
     
@@ -302,6 +302,7 @@ def tutorial_page():
 
 def duodok_page():
     st.title("DuoDok Analysis")
+    st.write("Note: You must install the files from Github to run its.")
     
     # Set up columns for receptor and antibody
     col1, col2 = st.columns(2)
@@ -459,8 +460,6 @@ def privacy_page():
     st.title("Privacy Policy")
     
     st.write("""
-    Last updated: March 1, 2025
-    
     Thank you for using DuoDok. This Privacy Policy explains how the collection, use, disclosure, 
     and safeguarding of your information when you use our service.
     """)
