@@ -18,12 +18,9 @@ import smtplib
 def send_email(name, email, subject, message):
     try:
         # Set up the SMTP server and sender credentials
-        sender_email = "your_email@gmail.com"  # Replace with your email
-        sender_password = "your_password"  # Replace with your email password (consider using app-specific password)
-        
-        # Recipient's email (use the contact email where you want the message to be sent)
-        recipient_email = "your_email@gmail.com"  # Replace with the email you want to receive the message
-        
+        sender_email = "invisiblemr674@gmail.com"  
+        sender_password = "someone123"  
+        recipient_email = "kmohammadaarish@gmail.com" 
         # Create the MIME message
         msg = MIMEMultipart()
         msg['From'] = email
