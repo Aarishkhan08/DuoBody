@@ -13,6 +13,36 @@ import shutil
 import re
 import time
 import base64
+import smtplib
+
+def send_email(name, email, subject, message):
+    try:
+        # Set up the SMTP server and sender credentials
+        sender_email = "your_email@gmail.com"  # Replace with your email
+        sender_password = "your_password"  # Replace with your email password (consider using app-specific password)
+        
+        # Recipient's email (use the contact email where you want the message to be sent)
+        recipient_email = "your_email@gmail.com"  # Replace with the email you want to receive the message
+        
+        # Create the MIME message
+        msg = MIMEMultipart()
+        msg['From'] = email
+        msg['To'] = recipient_email
+        msg['Subject'] = subject
+        
+        # The body of the email
+        body = f"Message from {name} ({email}):\n\n{message}"
+        msg.attach(MIMEText(body, 'plain'))
+        
+        # Connect to the SMTP server
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:  # For Gmail
+            server.login(sender_email, sender_password)
+            server.sendmail(email, recipient_email, msg.as_string())
+        
+        return True
+    
+    except Exception as e:
+        return str(e)  # Return the error message if something goes wrong
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
