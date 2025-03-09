@@ -19,7 +19,7 @@ def send_email(name, email, subject, message):
     try:
         # Set up the SMTP server and sender credentials
         sender_email = "invisiblemr674@gmail.com"  
-        sender_password = "someone123"  
+        sender_password = "Someone123"  
         recipient_email = "kmohammadaarish@gmail.com" 
         # Create the MIME message
         msg = MIMEMultipart()
