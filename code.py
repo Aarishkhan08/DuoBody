@@ -13,7 +13,6 @@ import shutil
 import re
 import time
 import base64
-from email_utils import send_email
 
 # Configuration
 UPLOAD_FOLDER = 'uploads'
