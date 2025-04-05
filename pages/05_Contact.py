@@ -11,7 +11,7 @@ from utils.email_sender import EmailSender
 
 # Set page title
 st.set_page_config(
-    page_title="Contact - PDB Analysis Platform",
+    page_title="Contact - DuoDok",
     page_icon="🧬",
     layout="wide"
 )
