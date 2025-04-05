@@ -14,6 +14,7 @@ import re
 import time
 import base64
 import smtplib
+import smth.py
 
 def send_email(name, email, subject, message):
     try:
@@ -523,6 +524,7 @@ def main():
             "About the Author": "authors",
             "Contact Us": "contact",
             "Privacy Policy": "privacy"
+            "Something": "smth"
         }
         
         selection = st.sidebar.radio("Navigation", list(pages.keys()))
@@ -551,6 +553,8 @@ def main():
         contact_page()
     elif st.session_state.page == "privacy":
         privacy_page()
+    elif st.session_state.page == "smth":
+        smth.py();
 
 if __name__ == "__main__":
     main()
