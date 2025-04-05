@@ -10,7 +10,7 @@ from Welcome import is_authenticated
 
 # Set page title
 st.set_page_config(
-    page_title="Tutorial - PDB Analysis Platform",
+    page_title="Tutorial - DuoDok",
     page_icon="🧬",
     layout="wide"
 )
@@ -29,7 +29,7 @@ if not is_authenticated():
 
 # Page content
 st.image("duodok.png", width=100)
-st.title("🎓Tutorial: How to Use the PDB Analysis Platform")
+st.title("🎓Tutorial: How to Use DuoDok")
 if is_authenticated():
     # Get user information
     user_info = Welcome.get_user_info()
@@ -49,7 +49,7 @@ if is_authenticated():
             Welcome.logout()
             st.rerun()
 st.write("""
-Welcome to the PDB Analysis Platform tutorial. This guide will help you understand how to use 
+Welcome to the DuoDok tutorial. This guide will help you understand how to use 
 our platform effectively to analyze and compare protein structures using PDB files.
 """)
 
