@@ -8,7 +8,7 @@ from utils.rate_limiter import check_rate_limit
 
 # Set page configuration
 st.set_page_config(
-    page_title="PDB Analysis Platform",
+    page_title="DuoDok",
     page_icon="🧬",
     layout="wide",
     initial_sidebar_state="expanded"
