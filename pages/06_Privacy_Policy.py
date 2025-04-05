@@ -10,7 +10,7 @@ from Welcome import is_authenticated
 
 # Set page title
 st.set_page_config(
-    page_title="Privacy Policy - PDB Analysis Platform",
+    page_title="Privacy Policy - DuoDok",
     page_icon="🧬",
     layout="wide"
 )
@@ -52,7 +52,7 @@ st.write("""
 This Privacy Policy describes how DuoDok collects, uses, and 
 shares your personal information when you use our platform.
 
-Please read this Privacy Policy carefully. By using the PDB Analysis Platform, you agree to the practices 
+Please read this Privacy Policy carefully. By using DuoDok, you agree to the practices 
 described in this policy.
 """)
 
