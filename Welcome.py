@@ -111,7 +111,7 @@ def logout():
 def main():
     # Display header
     st.image("duodok.png", width=100)
-    st.title("🧬PDB Analysis Platform")
+    st.title("🧬DuoDok")
     # Check if user is authenticated
     if is_authenticated():
         # Get user information
@@ -135,7 +135,7 @@ def main():
 
         # Display main content
         st.write("""
-        ## Welcome to the PDB Analysis Platform
+        ## Welcome to DuoDok
 
         This platform allows you to analyze and compare Protein Data Bank (PDB) files. 
 
@@ -164,7 +164,7 @@ def main():
     else:
         # Display login page
         st.write("""
-        ## Welcome to the PDB Analysis Platform
+        ## Welcome to the DuoDok
 
         Please log in to access the platform.
         """)
@@ -213,7 +213,7 @@ def main():
 
         with st.expander("About this platform"):
             st.write("""
-            The PDB Analysis Platform is a tool for scientists, researchers, and students to analyze 
+            DuoDok is a tool for scientists, researchers, and students to analyze 
             and compare protein structures using PDB files.
 
             Key features:
