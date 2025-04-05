@@ -1,0 +1,140 @@
+/* ========== Base Reset ========== */
+#MainMenu, footer, .stDeployButton {
+    display: none !important;
+}
+
+/* ========== Color Scheme ========== */
+:root {
+    /* Core Palette */
+    --primary: #2563EB;         /* IBM Blue */
+    --secondary: #3B82F6;       /* Azure Blue */
+    --success: #10B981;         /* Emerald Green */
+    --warning: #F59E0B;         /* Amber */
+    --danger: #EF4444;          /* Crimson */
+
+    /* Neutrals */
+    --background: #0F172A;      /* Navy Base */
+    --surface: #1E293B;         /* Slate Surface */
+    --on-surface: #F8FAFC;      /* White Text */
+
+    /* Elevation */
+    --elevation-1: #1E293B;
+    --elevation-2: #334155;
+}
+
+/* ========== Typography ========== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.015em;
+}
+
+h1 {
+    font-weight: 700 !important;
+    color: var(--on-surface) !important;
+    margin-bottom: 1.5rem !important;
+}
+
+h2, h3 {
+    font-weight: 600 !important;
+    color: var(--on-surface) !important;
+}
+
+/* ========== Component Styling ========== */
+.stApp {
+    background: var(--background);
+    color: var(--on-surface);
+}
+
+/* ----- Buttons ----- */
+.stButton > button {
+    background: var(--primary) !important;
+    border-radius: 8px !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ----- Inputs & Forms ----- */
+.stTextInput>div>div>input,
+.stTextArea>div>textarea,
+.stSelectbox>div>div>div {
+    background: var(--surface) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 6px !important;
+    padding: 10px 14px !important;
+}
+
+/* ----- Data Tables ----- */
+.stDataFrame {
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
+    background: var(--surface) !important;
+}
+
+.stDataFrame th {
+    background: var(--elevation-2) !important;
+    font-weight: 600 !important;
+}
+
+/* ----- Cards & Containers ----- */
+.stAlert, .stExpander {
+    background: var(--surface) !important;
+    border: 1px solid #334155 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stExpander > label {
+    font-weight: 600 !important;
+}
+
+/* ----- Progress & Status ----- */
+.stProgress > div > div > div {
+    background: var(--primary) !important;
+}
+
+/* ----- Custom Scrollbar ----- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 4px;
+}
+
+/* ========== Utility Classes ========== */
+.surface-container {
+    background: var(--surface) !important;
+    border-radius: 8px !important;
+    padding: 24px !important;
+    border: 1px solid #334155 !important;
+}
+
+.elevation-1 {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ========== Responsive Design ========== */
+@media (max-width: 768px) {
+    div.block-container {
+        padding: 1.5rem !important;
+    }
+
+    .stDataFrame {
+        font-size: 14px !important;
+    }
+}
