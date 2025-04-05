@@ -12,7 +12,7 @@ from utils.pdb_analyzer import PDBAnalyzer
 
 # Set page title
 st.set_page_config(
-    page_title="Analysis - PDB Analysis Platform",
+    page_title="Analysis - DuoDok",
     page_icon="🧬",
     layout="wide"
 )
