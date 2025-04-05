@@ -15,7 +15,7 @@ from utils.pdb_analyzer import PDBAnalyzer
 
 # Set page configuration
 st.set_page_config(
-    page_title="DuoDok - PDB Analysis",
+    page_title="DuoDok",
     page_icon="🧬",
     layout="wide"
 )
