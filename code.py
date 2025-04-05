@@ -554,7 +554,7 @@ def main():
     elif st.session_state.page == "privacy":
         privacy_page()
     elif st.session_state.page == "smth":
-        smth.py();
+        app();
 
 if __name__ == "__main__":
     main()
