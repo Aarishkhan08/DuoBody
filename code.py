@@ -523,7 +523,7 @@ def main():
             "DuoDok Analysis": "duodok",
             "About the Author": "authors",
             "Contact Us": "contact",
-            "Privacy Policy": "privacy"
+            "Privacy Policy": "privacy",
             "Something": "smth"
         }
         
