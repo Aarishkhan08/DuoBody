@@ -14,7 +14,7 @@ import re
 import time
 import base64
 import smtplib
-import smth.py
+import smth
 
 def send_email(name, email, subject, message):
     try:
