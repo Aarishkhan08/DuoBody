@@ -19,7 +19,7 @@ from Welcome import is_authenticated
 
 # Set page title
 st.set_page_config(
-    page_title="Tutorial - PDB Analysis Platform",
+    page_title="Tutorial - DuoDok",
     page_icon="🧬",
     layout="wide"
 )
