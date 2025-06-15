@@ -21,10 +21,35 @@ import random
 from stmol import showmol
 import py3Dmol
 import matplotlib
+import os
+import sys
+import Welcome
 matplotlib.use('Agg')
 
 # Set page config
-st.set_page_config(page_title="Bispecific Antibody Designer", layout="wide")
+# Add the root directory to the path so we can import from the root
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from Welcome import is_authenticated, get_user_info
+from utils.pdb_analyzer import PDBAnalyzer
+
+# Set page title
+st.set_page_config(
+    page_title="Analysis - DuoDok",
+    page_icon="🧬",
+    layout="wide"
+)
+
+def load_custom_css():
+    with open(".streamlit/custom.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+# Call the function at the beginning
+load_custom_css()
+# Check if user is authenticated
+if not is_authenticated():
+    st.warning("Please log in to access this page.")
+    st.stop()
+#st.set_page_config(page_title="Bispecific Antibody Designer", layout="wide")
 
 # CSS to hide the streamlit branding
 hide_streamlit_style = """
@@ -58,7 +83,24 @@ with col1:
 
 with col2:
     antibody_files = st.file_uploader("Upload Antibody PDB Files", type=["pdb"], accept_multiple_files=True)
+if is_authenticated():
+    # Get user information
+    user_info = Welcome.get_user_info()
 
+    # Display user information and logout button in the sidebar
+    with st.sidebar:
+        if user_info:
+            st.write(f"Welcome, {user_info.get('name', 'User')}!")
+            st.write(f"Email: {user_info.get('email', 'N/A')}")
+            st.write("© 2025 DuoDok")
+
+        else:
+            st.write("Welcome, User! © 2025 DuoDok")
+
+        # Logout button
+        if st.button("Logout"):
+            Welcome.logout()
+            st.rerun()
 # Functions for the pipeline
 def process_pdb_structure(pdb_file):
     """
