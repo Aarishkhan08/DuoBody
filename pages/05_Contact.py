@@ -185,3 +185,4 @@ with st.expander("Frequently Asked Questions"):
     You can report bugs through this contact form by selecting "Bug Report" as the category.
 
     """)
+
